@@ -7,7 +7,6 @@
   <title>Adaptive System Design</title>
   <meta name="description" content="Adaptive System Design develops accessible, evidence-based engineering knowledge through acquisition, interaction, testing, documentation, and prototyping.">
   <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -41,7 +40,8 @@
       </div>
 
       <div class="hero-object">
-        <div class="instrument-panel" aria-labelledby="control-title">
+        <fieldset class="instrument-panel" aria-labelledby="control-title">
+          <legend class="sr-only">ASD evidence control</legend>
           <span class="panel-screw screw-a" aria-hidden="true"></span>
           <span class="panel-screw screw-b" aria-hidden="true"></span>
           <span class="panel-screw screw-c" aria-hidden="true"></span>
@@ -52,32 +52,39 @@
             <span class="status-led" aria-hidden="true"></span>
           </div>
 
-          <div class="instrument-display" aria-live="polite">
-            <span class="cycle-state active" data-stage="0">OBSERVE</span>
-            <span class="cycle-state" data-stage="1">PRESERVE</span>
-            <span class="cycle-state" data-stage="2">LEARN</span>
-            <span class="cycle-state" data-stage="3">ADAPT</span>
-            <strong id="stage-readout">01 / OBSERVE</strong>
-            <small id="stage-description">Capture what actually happened.</small>
+          <input class="stage-radio" type="radio" name="evidence-stage" id="stage-observe" checked>
+          <input class="stage-radio" type="radio" name="evidence-stage" id="stage-preserve">
+          <input class="stage-radio" type="radio" name="evidence-stage" id="stage-learn">
+          <input class="stage-radio" type="radio" name="evidence-stage" id="stage-adapt">
+
+          <div class="instrument-display">
+            <div class="stage-list" aria-hidden="true">
+              <span class="stage-name observe-name">OBSERVE</span>
+              <span class="stage-name preserve-name">PRESERVE</span>
+              <span class="stage-name learn-name">LEARN</span>
+              <span class="stage-name adapt-name">ADAPT</span>
+            </div>
+            <div class="stage-detail observe-detail"><strong>01 / OBSERVE</strong><small>Capture what actually happened.</small></div>
+            <div class="stage-detail preserve-detail"><strong>02 / PRESERVE</strong><small>Keep the outcome, source, and context together.</small></div>
+            <div class="stage-detail learn-detail"><strong>03 / LEARN</strong><small>Compare evidence and extract reusable knowledge.</small></div>
+            <div class="stage-detail adapt-detail"><strong>04 / ADAPT</strong><small>Change the next response using what was learned.</small></div>
           </div>
 
-          <div class="instrument-controls">
-            <div class="selector-group">
-              <button class="control-knob" id="evidence-selector" type="button" aria-label="Advance evidence cycle. Current stage: Observe" title="Advance evidence cycle">
-                <span class="knob-index" aria-hidden="true"></span>
-              </button>
-              <span class="control-caption">SELECT</span>
-            </div>
-            <div class="control-scale" aria-hidden="true">
-              <span>OBSERVE</span>
-              <div class="scale-line"></div>
-              <span>ADAPT</span>
-            </div>
+          <div class="selector-bank" aria-label="Select evidence stage">
+            <label for="stage-observe">Observe</label>
+            <label for="stage-preserve">Preserve</label>
+            <label for="stage-learn">Learn</label>
+            <label for="stage-adapt">Adapt</label>
           </div>
 
-          <p class="control-help">Press or tap the selector to move through the ASD evidence loop.</p>
+          <div class="knob-area" aria-hidden="true">
+            <div class="control-knob"><span class="knob-index"></span></div>
+            <span class="control-caption">STAGE</span>
+          </div>
+
+          <p class="control-help">Tap a stage to inspect the ASD evidence loop.</p>
           <div class="rack-label">SYSTEM RESPONSE / 01</div>
-        </div>
+        </fieldset>
       </div>
     </section>
 
