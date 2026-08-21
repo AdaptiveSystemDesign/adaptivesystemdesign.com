@@ -7,6 +7,7 @@
   <title>Adaptive System Design</title>
   <meta name="description" content="Adaptive System Design develops accessible, evidence-based engineering knowledge through acquisition, interaction, testing, documentation, and prototyping.">
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -14,7 +15,10 @@
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Adaptive System Design home">
       <span class="brand-mark" aria-hidden="true">ASD</span>
-      <span class="brand-name">Adaptive System Design</span>
+      <span class="brand-copy">
+        <span class="brand-name">Adaptive System Design</span>
+        <span class="brand-subtitle">Engineering &amp; Prototype Development</span>
+      </span>
     </a>
     <nav aria-label="Primary navigation">
       <a href="#purpose">Purpose</a>
@@ -36,30 +40,42 @@
         </div>
       </div>
 
-      <div class="hero-object" aria-hidden="true">
-        <div class="instrument-panel">
-          <span class="panel-screw screw-a"></span>
-          <span class="panel-screw screw-b"></span>
-          <span class="panel-screw screw-c"></span>
-          <span class="panel-screw screw-d"></span>
+      <div class="hero-object">
+        <div class="instrument-panel" aria-labelledby="control-title">
+          <span class="panel-screw screw-a" aria-hidden="true"></span>
+          <span class="panel-screw screw-b" aria-hidden="true"></span>
+          <span class="panel-screw screw-c" aria-hidden="true"></span>
+          <span class="panel-screw screw-d" aria-hidden="true"></span>
+
           <div class="instrument-head">
-            <span>ASD / ENGINEERING</span>
-            <span class="status-led"></span>
+            <span id="control-title">ASD / EVIDENCE CONTROL</span>
+            <span class="status-led" aria-hidden="true"></span>
           </div>
-          <div class="instrument-display">
-            <span>OBSERVE</span>
-            <span>PRESERVE</span>
-            <span>LEARN</span>
-            <span>ADAPT</span>
+
+          <div class="instrument-display" aria-live="polite">
+            <span class="cycle-state active" data-stage="0">OBSERVE</span>
+            <span class="cycle-state" data-stage="1">PRESERVE</span>
+            <span class="cycle-state" data-stage="2">LEARN</span>
+            <span class="cycle-state" data-stage="3">ADAPT</span>
+            <strong id="stage-readout">01 / OBSERVE</strong>
+            <small id="stage-description">Capture what actually happened.</small>
           </div>
+
           <div class="instrument-controls">
-            <div class="control-knob"><span></span></div>
-            <div class="control-scale">
-              <span>INPUT</span>
+            <div class="selector-group">
+              <button class="control-knob" id="evidence-selector" type="button" aria-label="Advance evidence cycle. Current stage: Observe" title="Advance evidence cycle">
+                <span class="knob-index" aria-hidden="true"></span>
+              </button>
+              <span class="control-caption">SELECT</span>
+            </div>
+            <div class="control-scale" aria-hidden="true">
+              <span>OBSERVE</span>
               <div class="scale-line"></div>
-              <span>EVIDENCE</span>
+              <span>ADAPT</span>
             </div>
           </div>
+
+          <p class="control-help">Press or tap the selector to move through the ASD evidence loop.</p>
           <div class="rack-label">SYSTEM RESPONSE / 01</div>
         </div>
       </div>
@@ -78,57 +94,26 @@
       <p class="section-label">Method</p>
       <h2 id="method-title">Evidence moves through a simple loop.</h2>
       <div class="process-grid">
-        <article class="process-card">
-          <span class="step">01</span>
-          <h3>Acquire</h3>
-          <p>Bring real components, interfaces, tools, and systems into direct interaction.</p>
-        </article>
-        <article class="process-card">
-          <span class="step">02</span>
-          <h3>Interact</h3>
-          <p>Use them under practical conditions, including conditions shaped by disability and access needs.</p>
-        </article>
-        <article class="process-card">
-          <span class="step">03</span>
-          <h3>Test</h3>
-          <p>Compare approaches, constraints, failures, adaptations, and unexpected outcomes.</p>
-        </article>
-        <article class="process-card">
-          <span class="step">04</span>
-          <h3>Preserve</h3>
-          <p>Document what happened with enough context and provenance to make the evidence reusable.</p>
-        </article>
+        <article class="process-card"><span class="step">01</span><h3>Acquire</h3><p>Bring real components, interfaces, tools, and systems into direct interaction.</p></article>
+        <article class="process-card"><span class="step">02</span><h3>Interact</h3><p>Use them under practical conditions, including conditions shaped by disability and access needs.</p></article>
+        <article class="process-card"><span class="step">03</span><h3>Test</h3><p>Compare approaches, constraints, failures, adaptations, and unexpected outcomes.</p></article>
+        <article class="process-card"><span class="step">04</span><h3>Preserve</h3><p>Document what happened with enough context and provenance to make the evidence reusable.</p></article>
       </div>
       <p class="principle">An adaptive system turns failure into evidence by preserving what happened, learning from the outcome, and adapting its next response.</p>
     </section>
 
     <section class="panel srco" id="srco" aria-labelledby="srco-title">
-      <div>
-        <p class="section-label">Skunkworks</p>
-        <h2 id="srco-title">SRCo explores before the application is known.</h2>
-      </div>
-      <div>
-        <p>SRCo is the skunkworks function within Adaptive System Design. It turns curiosity into physical evidence through acquisition, interaction, testing, and documentation.</p>
-        <p>ASD transforms that evidence into reusable engineering knowledge. The experiment can be valuable even before a final product, service, or application has been defined.</p>
-      </div>
+      <div><p class="section-label">Skunkworks</p><h2 id="srco-title">SRCo explores before the application is known.</h2></div>
+      <div><p>SRCo is the skunkworks function within Adaptive System Design. It turns curiosity into physical evidence through acquisition, interaction, testing, and documentation.</p><p>ASD transforms that evidence into reusable engineering knowledge. The experiment can be valuable even before a final product, service, or application has been defined.</p></div>
     </section>
 
     <section aria-labelledby="principles-title">
       <p class="section-label">Design principles</p>
       <h2 id="principles-title">Accessibility is part of the engineering model.</h2>
       <div class="principles-grid">
-        <article>
-          <h3>Lived experience is evidence</h3>
-          <p>Disability can expose system properties that are otherwise difficult to observe.</p>
-        </article>
-        <article>
-          <h3>Preserve context</h3>
-          <p>Evidence is strongest when the conditions, source, outcome, and uncertainty remain attached.</p>
-        </article>
-        <article>
-          <h3>Reduce barriers upstream</h3>
-          <p>Good systems remove avoidable cognitive and physical friction before it becomes a failure point.</p>
-        </article>
+        <article><h3>Lived experience is evidence</h3><p>Disability can expose system properties that are otherwise difficult to observe.</p></article>
+        <article><h3>Preserve context</h3><p>Evidence is strongest when the conditions, source, outcome, and uncertainty remain attached.</p></article>
+        <article><h3>Reduce barriers upstream</h3><p>Good systems remove avoidable cognitive and physical friction before it becomes a failure point.</p></article>
       </div>
     </section>
 
@@ -140,8 +125,6 @@
     </section>
   </main>
 
-  <footer>
-    <p>Adaptive System Design · Engineering &amp; Prototype Development</p>
-  </footer>
+  <footer><p>Adaptive System Design · Engineering &amp; Prototype Development</p></footer>
 </body>
 </html>
